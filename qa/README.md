@@ -10,7 +10,7 @@ Check if the IP got created
 ```
 gcloud compute addresses describe infrastructure-ip --global
 ```
-Also give cluster-admin role to the Service Account using the below line.
+Give cluster-admin role to the Service Account.
 ```
 kubectl apply -f ./fabric8-rbac.yaml
 ```
