@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: infrastructure-qa-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: infrastructure-ip
+    kubernetes.io/ingress.allow-http: "false"
+  labels:
+    app: qa-ingress
+spec:
+  tls:
+  - hosts: 
+    -  ci-qa.pncapix.com
+    -  microservice-qa.pncapix.com
+    secretName: tls-secret
+  rules:
+  - host: ci-qa.pncapix.com
+    http:
+     paths:
+     - path: /*
+       backend:
+        serviceName: ci-jenkins        
+        servicePort: 8080
+  - host: microservice-qa.pncapix.com
+    http:
+     paths:
+     - path: /*
+       backend:
+        serviceName: microservice       
+        servicePort: 8080

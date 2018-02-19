@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins-jenkins-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: helloweb-ip
+    kubernetes.io/ingress.allow-http: "false"
+  labels:
+    app: jenkins-jenkins
+spec:
+  tls:
+  - hosts: 
+    -  cluster-51.pncapix.com
+    secretName: pncapix-secret
+  rules:
+  - host: cluster-51.pncapix.com
+    http:
+     paths:
+     - path: /*
+       backend:
+        serviceName: jenkins-jenkins        
+        servicePort: 8080
