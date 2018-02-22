@@ -1,12 +1,12 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: infrastructure-qa-ingress
+  name: infrastructure-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: infrastructure-ip
+    kubernetes.io/ingress.global-static-ip-name: my-global
     kubernetes.io/ingress.allow-http: "false"
   labels:
-    app: qa-ingress
+    app: infrastructure-ingress
 spec:
   tls:
   - hosts: 

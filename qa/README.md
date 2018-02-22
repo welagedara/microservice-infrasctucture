@@ -4,15 +4,22 @@
 
 Create a Static IP using gcloud( You need this for the Deployment)
 ```
-gcloud compute addresses create infrastructure-ip --global
+gcloud compute addresses create global-ip --global
 ```
 Check if the IP got created
 ```
-gcloud compute addresses describe infrastructure-ip --global
+gcloud compute addresses describe global-ip --global
 ```
-Give cluster-admin role to the Service Account.
+Give cluster-admin role to the Service Account. This did not work all the time.
 ```
 kubectl apply -f ./fabric8-rbac.yaml
+```
+If it does not work use 
+```
+kubectl create serviceaccount --namespace kube-system tiller
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'      
+helm init --service-account tiller --upgrade
 ```
 
 ## Installation Guidelines
@@ -50,5 +57,5 @@ To delete everything
 ```
 Delete Static IP
 ```
-gcloud compute addresses delete infrastructure-ip --global
+gcloud compute addresses delete global-ip --global
 ```

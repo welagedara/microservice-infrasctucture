@@ -1,0 +1,12 @@
+Master:
+  ServiceType: LoadBalancer
+  InstallPlugins:
+      - kubernetes:0.12
+      - workflow-aggregator:2.5
+      - workflow-job:2.15
+      - credentials-binding:1.13
+      - git:3.5.1
+      - pipeline-github-lib:1.0
+      - ghprb:1.39.0
+      - blueocean:1.1.7
+
