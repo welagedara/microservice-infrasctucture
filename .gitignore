@@ -1,2 +1,5 @@
-qa/tls/tls.key
-qa/tls/tls.crt
+discarded/tls/tls.key
+discarded/tls/tls.crt
+
+tls/tls.key
+tls/tls.crt

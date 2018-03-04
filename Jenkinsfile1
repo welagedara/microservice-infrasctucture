@@ -1,0 +1,20 @@
+def label = "mypod-${UUID.randomUUID().toString()}"
+
+podTemplate(label: label, containers: [
+    containerTemplate(name: 'gcloud', image: 'google/cloud-sdk', command: 'cat', ttyEnabled: true)
+  ],
+  volumes:[
+    hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')
+  ]) {
+
+    node(label) {
+        stage('GCloud Test') {
+            container('gcloud') {
+                stage('Test GCloud') {
+                    sh 'gcloud container images list-tags gcr.io/kubernetes-195622/ubuntu'
+                }
+            }
+        }
+
+    }
+}

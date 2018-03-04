@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jdk
+spec:
+  selector:
+    matchLabels:
+      app: jdk
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: jdk
+    spec:
+      containers:
+      - image: gcr.io/kubernetes-195622/openjdk
+        name: jdk
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: registrypullsecretd
