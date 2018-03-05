@@ -31,6 +31,18 @@ Test Jenkinsfile1 to check if you have access to Google Container Registry
 ./undeploy.sh
 ```
 
+## Getting microservice to run
+
+Deploy MySQL using the script in microservice Project.
+```
+./9-helm_deploy_mysql.sh
+```
+Then follow Jenkins Configuration Instructions
+Finally deploy the Ingress to expose the API to outside
+
+## ToDos
+  - Change NodePort to ClusterIP for all Services
+
 ## Discarded Directory
 
 You might find some useful code snippets in ./discarded directory.
