@@ -60,5 +60,6 @@ You might find some useful code snippets in ./discarded directory.
   - [GCloud Authentication](https://cloud.google.com/sdk/docs/authorizing)
   - [GCloud Authentication](https://cloud.google.com/sdk/docs/authorizing)
   - [Use GCloud with Jenkins](https://stackoverflow.com/questions/28356497/use-gcloud-with-jenkins)
+  - [Tutorial on Creating Ingresses on GCloud](https://cloud.google.com/kubernetes-engine/docs/tutorials/http-balancer)
 
 
